@@ -1,5 +1,6 @@
 /* BASIC SETTINGS */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 *,
 *::after,
 *::before {
@@ -10,28 +11,51 @@
 
 html {
   font-size: 62.5%;
-  background-color: #f3f8ff;
-  overflow: hidden;
-  overflow-y: hidden;
+  background-color: var(--color-background);
 }
 
 body {
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
-  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
 main {
-  max-width: 1400px;
+  max-width: 1366px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
 }
 
 :root {
-  --color-primary: #1e3e65;
-  --color-background: #f3f8ff;
-  --color-white: #ffffff;
-  --color-accent: #2784f7;
+  /* variables */
+  --color-primary: #ff643d;
+  --color-secondary: #040e5a;
+  --color-background: #f8faff;
+  --color-background-dark: #b5b9d5;
+  --color-background-accent: #f0f3ff;
+
+  --default-font-weight: 500;
+}
+
+/* Global Styling */
+.u-center-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  border: none;
+  max-width: 21rem;
+  width: 100%;
+  cursor: pointer;
 }
