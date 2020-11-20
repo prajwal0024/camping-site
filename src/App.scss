@@ -31,5 +31,13 @@ main {
   --color-secondary: #040e5a;
   --color-background: #f8faff;
   --color-background-variant-1: #f0f3ff;
+  --color-background-variant-2: #b5b9d5;
   --font-weight-default: 500;
+}
+
+/* GLOBAL STYLING */
+.btn {
+  max-width: 20rem;
+  width: 100%;
+  cursor: pointer;
 }

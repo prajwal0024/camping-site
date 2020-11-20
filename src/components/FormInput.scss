@@ -1,0 +1,21 @@
+.form-input {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-default);
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem 1rem 2rem;
+  border: 2px solid var(--color-background-variant-2);
+  border-radius: 1rem;
+  background-color: var(--color-background-variant-1);
+  color: rgba(4, 14, 90, 0.85);
+
+  &::placeholder {
+    color: var(--color-background-variant-2);
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid rgba(4, 14, 90, 0.85);
+  }
+}

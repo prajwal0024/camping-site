@@ -2,6 +2,102 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  // background-color: red;
+  transform: translate(-50%, -52%);
+  text-align: center;
+  max-width: 32rem;
+
+  &__logo {
+    height: 3.1rem;
+    width: 7.4rem;
+    margin: auto;
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: var(--font-size-default);
+    color: var(--color-secondary);
+    margin-top: 3rem;
+  }
+
+  .btn--google-auth {
+    position: relative;
+    display: flex;
+    margin: 2rem auto 0;
+    border: none;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    padding: 1rem 0rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    &__logo {
+      height: 2rem;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &__or {
+    margin-top: 2rem;
+    position: relative;
+
+    hr {
+      border: 1px solid var(--color-background-variant-2);
+    }
+
+    p {
+      display: inline-block;
+      font-size: 1.4rem;
+      color: var(--color-background-variant-2);
+      background: var(--color-background);
+      padding: 0 1rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-form {
+    margin-top: 0.5rem;
+
+    &__password-control {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    color: var(--color-background-variant-2);
+    text-decoration: underline;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  .btn--primary {
+    margin-top: 3rem;
+    border: none;
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 0.9rem 0 1rem;
+    line-height: 1;
+  }
+
+  &__bottom-text {
+    margin: 1.5rem auto 0;
+    max-width: 21rem;
+    font-size: 1.4rem;
+    color: var(--color-background-variant-2);
+  }
 }

@@ -12,7 +12,7 @@ export const LoginPage = () => {
       <Logo className="authentication__logo" />
       <h1 className="authentication__heading">Login to your Account</h1>
       <button className="btn btn--google-auth">
-        <GoogleLogo />
+        <GoogleLogo className="btn--google-auth__logo" />
         Login with Google
       </button>
       <div className="authentication__or">
@@ -30,7 +30,7 @@ export const LoginPage = () => {
           <p className="authentication__link">Forget Password</p>
           <p className="authentication__link">Show Password</p>
         </div>
-        <button className="btn btn-primary" type={"submit"}>
+        <button className="btn btn--primary" type={"submit"}>
           Login
         </button>
       </form>
