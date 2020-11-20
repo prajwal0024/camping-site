@@ -1,9 +1,9 @@
-import "./App.css";
-import { SignInPage } from "./pages/SignInPage";
-import { SignUpPage } from "./pages/SignUpPage";
+import React from "react";
+import "./App.scss";
+import { LoginPage } from "./pages/LoginPage";
 
 function App() {
-  return <SignUpPage />;
+  return <LoginPage />;
 }
 
 export default App;
