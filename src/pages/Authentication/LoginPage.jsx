@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { FormInput } from "../components/FormInput";
-import { ReactComponent as Logo } from "../img/logo.svg";
-import { ReactComponent as GoogleLogo } from "../img/google-logo.svg";
+import { FormInput } from "../../components/FormInput/FormInput";
+import { ReactComponent as Logo } from "../../img/logo.svg";
+import { ReactComponent as GoogleLogo } from "../../img/google-logo.svg";
 import "./Authentication.scss";
 
 export const LoginPage = () => {
