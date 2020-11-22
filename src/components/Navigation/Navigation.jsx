@@ -8,8 +8,8 @@ const Navigation = () => {
     <nav className="nav container">
       <Logo className="nav__logo" />
       <ul className="nav__list">
-        <li className="nav__list-item nav__active">
-          <Link className="nav__link " to="/">
+        <li className="nav__list-item ">
+          <Link className="nav__link nav__active" to="/">
             Home
           </Link>
         </li>

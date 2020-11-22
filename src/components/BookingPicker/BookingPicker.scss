@@ -1,0 +1,71 @@
+.book-picker {
+  max-width: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  padding: 1rem 0 1rem 4rem;
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+  &__picker {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    font-weight: var(--font-weight-default);
+    margin: 1.5rem;
+    display: inline-block;
+  }
+
+  &__fix-span {
+    display: inline-block;
+    min-width: 3rem;
+  }
+
+  &__date {
+    cursor: default;
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__triangle {
+    height: 1.3rem;
+    width: 1.9rem;
+
+    // margin-right: 3rem;
+    cursor: pointer;
+    &--left {
+      transform: rotate(90deg);
+    }
+    &--right {
+      transform: rotate(270deg);
+    }
+  }
+
+  hr {
+    border: 1px solid #e9eaf1;
+    margin: 0 1.5rem;
+  }
+
+  &__btn {
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -1rem 0;
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    // height: 100%;
+    padding: 0 2rem;
+  }
+}

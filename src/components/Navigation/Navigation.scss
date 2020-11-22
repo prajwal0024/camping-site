@@ -1,5 +1,7 @@
 .nav {
-  margin-top: 3rem;
+  position: relative;
+  z-index: 10;
+  padding: 3rem 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,13 +23,14 @@
   &__link {
     &:link,
     &:visited {
+      position: relative;
       font-size: 1.8rem;
       font-weight: var(--font-weight-default);
       text-decoration: none;
-      color: var(--color-secondary);
+      color: #fff;
+      cursor: pointer;
     }
     &:hover {
-      position: relative;
       &::before {
         display: block;
         content: "";
