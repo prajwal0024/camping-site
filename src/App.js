@@ -5,6 +5,7 @@ import { LoginPage } from "./pages/Authentication/LoginPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { FourZeroFourPage } from "./pages/FourZeroFourPage";
 import { HomePage } from "./pages/Home/HomePage";
+import { UserProfilePage } from "./pages/Account/UserProfilePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/createAccount" component={CreateAccountPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/account" component={UserProfilePage} />
         <Route exact path="*" component={FourZeroFourPage} />
       </Switch>
     </BrowserRouter>

@@ -1,0 +1,79 @@
+.account {
+  .col {
+    height: 300px;
+  }
+  .col-side {
+    padding: 1.5rem 0;
+    // background-color: red;
+  }
+  .col-main {
+    background-color: green;
+  }
+
+  &__side-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    fill: var(--color-background-variant-2);
+    color: var(--color-background-variant-2);
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover:not(:last-child),
+    &--active {
+      position: relative;
+      fill: var(--color-secondary);
+      color: var(--color-secondary);
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 0.5rem;
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    &--logout {
+      margin-bottom: 2rem;
+      fill: rgba(255, 100, 61, 0.5);
+      color: rgba(255, 100, 61, 0.5);
+      &:hover {
+        fill: rgba(255, 100, 61, 0.9);
+        color: rgba(255, 100, 61, 0.9);
+      }
+    }
+  }
+
+  &__side-svg {
+    margin-right: 2rem;
+    &--1 {
+      width: 2.19rem;
+      height: 2.4rem;
+    }
+    &--2 {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    &--3 {
+      width: 2.781rem;
+      height: 1.955rem;
+    }
+    &--4 {
+      width: 2.307rem;
+      height: 2.557rem;
+    }
+    &--5 {
+      width: 2.707rem;
+      height: 2.59rem;
+    }
+  }
+
+  &__side-text {
+    font-size: 1.8rem;
+  }
+}

@@ -3,13 +3,17 @@ import { ReactComponent as Logo } from "../../img/logo.svg";
 import { Link } from "react-router-dom";
 import "./Navigation.scss";
 
-const Navigation = () => {
+const Navigation = ({ isLinkWhite }) => {
   return (
-    <nav className="nav container">
+    <nav
+      className={`nav container ${
+        isLinkWhite ? "nav__link--white" : "nav__link--secondary"
+      }`}
+    >
       <Logo className="nav__logo" />
-      <ul className="nav__list">
+      <ul className={`nav__list `}>
         <li className="nav__list-item ">
-          <Link className="nav__link nav__active" to="/">
+          <Link className="nav__link nav__active " to="/">
             Home
           </Link>
         </li>

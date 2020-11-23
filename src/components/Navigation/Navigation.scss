@@ -20,14 +20,21 @@
     margin-right: 2rem;
   }
 
+  &__link--white {
+    color: var(--color-white);
+  }
+
+  &__link--secondary {
+    color: var(--color-secondary);
+  }
   &__link {
+    color: inherit;
     &:link,
     &:visited {
       position: relative;
       font-size: 1.8rem;
       font-weight: var(--font-weight-default);
       text-decoration: none;
-      color: #fff;
       cursor: pointer;
     }
     &:hover {

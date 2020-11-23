@@ -10,7 +10,7 @@ export const HomePage = () => {
   return (
     <>
       <header className="header">
-        <Navigation />
+        <Navigation isLinkWhite={true} />
         <div className="header__center-box">
           <h1 className="header__heading">
             Exprience Camping Like Never Before
