@@ -35,12 +35,6 @@ export const BookingPicker = () => {
     const newDate = moment(
       `${date.year}-${months.indexOf(date.month) + 1}-${date.day}`
     );
-
-    console.log(
-      "isSameOrAfter",
-      newDate.isSameOrAfter(moment().startOf("day"))
-    );
-
     if (!newDate.isValid() || !newDate.isSameOrAfter(moment().startOf("day"))) {
       console.log("inside invalide date");
       setDate({
@@ -87,29 +81,33 @@ export const BookingPicker = () => {
     }
   };
 
+  // Return
   return (
     <div className="book-picker">
+      {/* People Selector */}
       <div className="book-picker__picker">
+        {/* Left Triangle */}
         {people > 0 && (
           <PickerTriangle
             className="book-picker__triangle book-picker__triangle--left"
             onClick={() => setPeople(people - 1)}
           />
         )}
+        {/* Text */}
         <p className="book-picker__text">
           <span className={people && "book-picker__fix-span"}>
             {people === 0 ? `No. of` : people}
           </span>{" "}
           {people === 1 ? "Person" : "People"}
         </p>
+        {/* Right Triangle */}
         <PickerTriangle
           className="book-picker__triangle book-picker__triangle--right"
           onClick={() => setPeople(people + 1)}
         />
       </div>
-
       <hr />
-
+      {/* Days Selector */}
       <div className="book-picker__picker">
         {days > 0 && (
           <PickerTriangle
@@ -128,9 +126,8 @@ export const BookingPicker = () => {
           onClick={() => setDays(days + 1)}
         />
       </div>
-
       <hr />
-
+      {/* Date Selector */}
       <div className="book-picker__picker u-relative">
         {/* Date Picker Start */}
         <div
@@ -179,7 +176,7 @@ export const BookingPicker = () => {
           onClick={() => checkInHandler()}
         />
       </div>
-
+      {/* Button */}
       <div className="book-picker__btn">
         <PickerButtonTriangle />
       </div>

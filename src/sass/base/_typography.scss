@@ -1,0 +1,27 @@
+.heading-secondary {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-default);
+  color: var(--color-secondary);
+  text-align: center;
+
+  span {
+    position: relative;
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0.8rem;
+      left: 1rem;
+      width: 95%;
+      height: 0.4rem;
+      background-color: var(--color-primary);
+      z-index: -1;
+    }
+  }
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--color-secondary);
+}
