@@ -5,12 +5,18 @@ import "./HomePage.scss";
 import { ReactComponent as OpenHoursSvg } from "../../img/open-24-hours.svg";
 import { ReactComponent as MenuSvg } from "../../img/menu.svg";
 import { ReactComponent as ActivitesSvg } from "../../img/activites.svg";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const HomePage = () => {
+  const { currentUser } = useAuth();
+  const primaryLink = {
+    title: currentUser ? "My Account" : "Login",
+    link: currentUser ? "account" : "login",
+  };
   return (
     <>
       <header className="header">
-        <Navigation isLinkWhite={true} />
+        <Navigation isLinkWhite={true} primaryLink={primaryLink} />
         <div className="header__center-box">
           <h1 className="header__heading">
             Exprience Camping Like Never Before

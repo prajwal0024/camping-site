@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import "./UserProfilePage.scss";
 import { ReactComponent as UserSvg } from "../../img/account-user.svg";
@@ -9,11 +9,31 @@ import { ReactComponent as LogoutSvg } from "../../img/account-logout.svg";
 import { ReactComponent as ChangePicSvg } from "../../img/account-change-pic.svg";
 import timerImage from "../../img/user-photo.png";
 import { FormInput } from "../../components/FormInput/FormInput";
+import { useAuth } from "../../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
 
 export const UserProfilePage = () => {
+  const [error, setError] = useState("");
+  const { logout } = useAuth();
+  const history = useHistory();
+
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+      history.pushState("/login");
+    } catch {
+      setError("Failed to Log Out");
+    }
+  }
+
   return (
     <>
-      <Navigation />
+      {error && alert(error)}
+      <Navigation
+        hideLinks={true}
+        primaryLink={{ link: "", title: "Go Back" }}
+      />
       <hr className="account-hr" />
       <div className="container account">
         <div className="row">
@@ -35,7 +55,10 @@ export const UserProfilePage = () => {
               <NotificationSvg className="account__side-svg account__side-svg--4" />
               <p className="account__side-text">Notification</p>
             </div>
-            <div className="account__side-link account__side-link--logout ">
+            <div
+              className="account__side-link account__side-link--logout "
+              onClick={handleLogout}
+            >
               <LogoutSvg className="account__side-svg account__side-svg--5" />
               <p className="account__side-text">Logout</p>
             </div>

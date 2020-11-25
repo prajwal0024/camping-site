@@ -3,7 +3,7 @@ import { ReactComponent as Logo } from "../../img/logo.svg";
 import { Link } from "react-router-dom";
 import "./Navigation.scss";
 
-const Navigation = ({ isLinkWhite }) => {
+const Navigation = ({ isLinkWhite, primaryLink, hideLinks }) => {
   return (
     <nav
       className={`nav container ${
@@ -11,7 +11,7 @@ const Navigation = ({ isLinkWhite }) => {
       }`}
     >
       <Logo className="nav__logo" />
-      <ul className={`nav__list `}>
+      <ul className={`nav__list ${hideLinks && "nav__hide"} `}>
         <li className="nav__list-item ">
           <Link className="nav__link nav__active " to="/">
             Home
@@ -33,8 +33,8 @@ const Navigation = ({ isLinkWhite }) => {
           </Link>
         </li>
       </ul>
-      <Link className="nav__link nav__active" to="/login">
-        Login
+      <Link className="nav__link nav__active" to={`/${primaryLink.link}`}>
+        {primaryLink.title}
       </Link>
     </nav>
   );
