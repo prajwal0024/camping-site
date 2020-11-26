@@ -2,6 +2,7 @@
   font-size: 1.4rem;
   color: var(--color-background-variant-2);
   margin-bottom: -1rem;
+  width: 100%;
 }
 
 .form-input {
@@ -15,6 +16,10 @@
   border-radius: 1rem;
   background-color: var(--color-background-variant-1);
   color: rgba(4, 14, 90, 0.85);
+
+  &--dropdown {
+    padding: 0.9rem 2.5rem 0.9rem 2rem;
+  }
 
   &::placeholder {
     color: var(--color-background-variant-2);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import "./UserProfilePage.scss";
 import { ReactComponent as UserSvg } from "../../img/account-user.svg";
@@ -11,11 +11,62 @@ import timerImage from "../../img/user-photo.png";
 import { FormInput } from "../../components/FormInput/FormInput";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
+import { fireDb } from "../../firebase";
 
 export const UserProfilePage = () => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { logout } = useAuth();
+  const { currentUser, logout } = useAuth();
   const history = useHistory();
+  console.log(currentUser);
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    address: "",
+    city: "",
+    country: "",
+    zipCode: 0,
+  });
+
+  useEffect(() => {
+    fireDb
+      .child("Users")
+      .child(currentUser.uid)
+      .once("value")
+      .then((snapshot) => {
+        console.log(snapshot.val() && snapshot.val());
+        setUserInfo(
+          (snapshot.val() && snapshot.val()) || {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            dob: "",
+            gender: "",
+            address: "",
+            city: "",
+            country: "",
+            zipCode: 0,
+          }
+        );
+      });
+  }, []);
+
+  // fireDb.child("Users").child(currentUser.uid).push({ name: "Prajwal" });
+  function handleChange(e) {
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  }
+
+  function handleUpdate() {
+    setLoading(true);
+    fireDb
+      .child("Users")
+      .child(currentUser.uid)
+      .set(userInfo)
+      .then(setLoading(false));
+  }
 
   async function handleLogout() {
     setError("");
@@ -88,26 +139,84 @@ export const UserProfilePage = () => {
                 </div>
               </div>
               <div className="account__row">
-                <FormInput isLabel="First Name" />
-                <FormInput isLabel="Last Name" />
+                <FormInput
+                  isLabel="First Name"
+                  state={userInfo.firstName}
+                  handleChange={handleChange}
+                  name="firstName"
+                />
+                <FormInput
+                  isLabel="Last Name"
+                  state={userInfo.lastName}
+                  handleChange={handleChange}
+                  name="lastName"
+                />
               </div>
               <div className="account__row">
-                <FormInput isLabel="Email" />
-                <FormInput isLabel="Phone Number" />
+                <FormInput
+                  disabled={true}
+                  isLabel="Email"
+                  state={currentUser.email}
+                />
+                <FormInput
+                  isLabel="Phone Number"
+                  state={userInfo.phone}
+                  handleChange={handleChange}
+                  name="phone"
+                />
               </div>
               <div className="account__row">
-                <FormInput isLabel="Date of Birth" />
-                <FormInput isLabel="Gender" />
+                <FormInput
+                  isLabel="Date of Birth"
+                  type="date"
+                  state={userInfo.dob}
+                  handleChange={handleChange}
+                  name="dob"
+                />
+                <FormInput
+                  isLabel="Gender"
+                  state={userInfo.gender}
+                  handleChange={handleChange}
+                  name="gender"
+                  isDropdown="gender"
+                />
               </div>
               <div className="account__row">
-                <FormInput isLabel="Address" />
-                <FormInput isLabel="City/State/Province" />
+                <FormInput
+                  isLabel="Address"
+                  state={userInfo.address}
+                  handleChange={handleChange}
+                  name="address"
+                />
+                <FormInput
+                  isLabel="City/State/Province"
+                  state={userInfo.city}
+                  handleChange={handleChange}
+                  name="city"
+                />
               </div>
               <div className="account__row">
-                <FormInput isLabel="Country" />
-                <FormInput isLabel="Zip Code" />
+                <FormInput
+                  isLabel="Country"
+                  state={userInfo.country}
+                  handleChange={handleChange}
+                  name="country"
+                  isDropdown={true}
+                />
+                <FormInput
+                  isLabel="Zip Code"
+                  state={userInfo.zipCode}
+                  handleChange={handleChange}
+                  name="zipCode"
+                />
               </div>
-              <button className="btn btn--primary">Update Profile</button>
+              <button
+                disabled={loading}
+                className="btn btn--primary"
+                onClick={handleUpdate}
+              >
+                Update Profile
+              </button>
             </div>
           </div>
         </div>
